@@ -2,7 +2,7 @@
   "name": "vigenere-cipher",
   "version": "1.0.0",
   "scripts": {
-    "start": "node backend/server.js",
+    "start": "node server/server.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "engines": {
