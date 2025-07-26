@@ -14,11 +14,11 @@ function App() {
     if (mode === 'file') {
       formData.append('textFile', textFile);
       formData.append('keyFile', keyFile);
-      const res = await fetch('http://localhost:5000/api/file/encrypt', { method: 'POST', body: formData });
+      const res = await fetch('/api/file/encrypt', { method: 'POST', body: formData });
       const data = await res.json();
       setResult(data.result);
     } else {
-      const res = await fetch('http://localhost:5000/api/encrypt', {
+      const res = await fetch('/api/encrypt', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text, key })
@@ -33,11 +33,11 @@ function App() {
     if (mode === 'file') {
       formData.append('textFile', textFile);
       formData.append('keyFile', keyFile);
-      const res = await fetch('http://localhost:5000/api/file/decrypt', { method: 'POST', body: formData });
+      const res = await fetch('/api/file/decrypt', { method: 'POST', body: formData });
       const data = await res.json();
       setResult(data.result);
     } else {
-      const res = await fetch('http://localhost:5000/api/decrypt', {
+      const res = await fetch('/api/decrypt', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text, key })
