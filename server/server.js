@@ -72,8 +72,10 @@ app.post("/api/file/decrypt", upload.fields([{ name: "textFile" }, { name: "keyF
     res.json({ result });
 });
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../client/build/index.html"));
+const buildPath = path.join(__dirname, "../client/build/index.html");
+
+app.get("/*", (req, res) => {
+  res.sendFile(buildPath);
 });
 
 const PORT = process.env.PORT || 5000;
