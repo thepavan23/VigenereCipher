@@ -2,6 +2,7 @@
   font-family: sans-serif;
   text-align: center;
   padding: 20px;
+  background-color: white;
 }
 input, select, button {
   margin: 10px;
@@ -9,4 +10,21 @@ input, select, button {
 }
 textarea {
   margin-top: 20px;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.app-container {
+  /*background-image: url("/background.png"); /* from public folder */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

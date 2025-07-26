@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 
+import bgImage from './assets/background.png';
+
 function App() {
   const [mode, setMode] = useState('manual');
   const [text, setText] = useState('');
@@ -48,6 +50,15 @@ function App() {
   };
 
   return (
+    <div
+        className="app-container"
+        style={{
+          backgroundImage: `url(${bgImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          height: '100vh',
+        }}
+      >
     <div className="App">
       <h1>Vigenere Cipher</h1>
       <div>
@@ -106,6 +117,8 @@ function App() {
         <button onClick={handleDecrypt}>Decrypt</button>
       </div>
       <textarea rows="6" cols="60" value={result} readOnly />
+    </div>
+
     </div>
   );
 }
