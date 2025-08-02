@@ -13,28 +13,6 @@ app.use(express.static(path.join(__dirname, "../client/build")));
 
 const upload = multer({ dest: "uploads/" });
 
-// function textToNumericArray(text) {
-//     return text.toLowerCase().split("").map(c => c.charCodeAt(0) - 97);
-// }
-
-// function normalizeKey(text, key) {
-//     let k = key;
-//     if (text.length !== key.length) {
-//         let j = 0;
-//         k = "";
-//         for (let i = 0; i < text.length; i++) {
-//             if (j === key.length) j = 0;
-//             k += key[j++];
-//         }
-//     }
-//     return k.toLowerCase().split("").map(c => c.charCodeAt(0) - 97);
-// }
-
-// function numericToText(arr) {
-//     return arr.map(n => String.fromCharCode(n + 97)).join("");
-// }
-
-
 // Utility: clean text (only lowercase a-z)
   function cleanInput(text) {
     return text.toLowerCase().replace(/[^a-z]/g, '');
@@ -82,18 +60,12 @@ const upload = multer({ dest: "uploads/" });
 
 app.post("/api/encrypt", (req, res) => {
     const { text, key } = req.body;
-    // const textArr = textToNumericArray(text);
-    // const keyArr = normalizeKey(text, key);
-    // const encrypted = encrypt(textArr, keyArr);
     const result = vigenereEncrypt(text,key);
     res.json({ result });
 });
 
 app.post("/api/decrypt", (req, res) => {
     const { text, key } = req.body;
-    // const textArr = textToNumericArray(text);
-    // const keyArr = normalizeKey(text, key);
-    // const decrypted = decrypt(textArr, keyArr);
     const result = vigenereDecrypt(text,key);
     res.json({ result });
 });
